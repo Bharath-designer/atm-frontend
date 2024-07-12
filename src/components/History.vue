@@ -53,6 +53,7 @@ export default {
     async beforeMount() {
         try {
             const result = await axiosInstance("/api/Atm/GetTransaction")
+            result.data.reverse()
             this.data = result.data
         } catch (error) {
             alert(error.response?.data.message)
@@ -89,15 +90,17 @@ export default {
 .history-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
+    height: 100%;
     padding: 1em;
-    gap: 1em
+    gap: 1em;
+    overflow: hidden;
 }
 
 .history-title {
     font-weight: 600;
-    font-size: 1.2em
+    font-size: 1.2em;
+    text-align: center
 }
 
 .transactions {
@@ -106,6 +109,7 @@ export default {
     gap: .5em;
     flex: 1;
     overflow: auto;
+    scrollbar-width: none;
 }
 
 .transaction {

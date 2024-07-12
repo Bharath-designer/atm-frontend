@@ -1,16 +1,15 @@
 <template>
     <div class="withdrawal-wrapper">
         <div class="form-container">
-            <h2>Withdrawal</h2>
-            <v-form ref="form" @submit.prevent="processTransaction">
-                <label for="amount">Amount:</label>
-                <v-text-field v-model="amount" variant="outlined" density="compact" :rules="amountRules">
+            <h3>Enter Amount to Withdraw</h3>
+            <v-form ref="form" class="form" @submit.prevent="processTransaction">
+                <v-text-field placeholder="Enter Amount to Withdraw" v-model="amount" variant="outlined"
+                    density="compact" :rules="amountRules">
                 </v-text-field>
-                <v-btn type="submit" color="primary">Submit</v-btn>
+                <v-btn :disabled="loading" class="proceed-btn" type="submit" color="primary">
+                    {{ loading ? "Processing...." : "Proceed" }}
+                </v-btn>
             </v-form>
-            <div v-if="loading" class="message-container">
-                <p>Transaction is being processed...</p>
-            </div>
         </div>
     </div>
 </template>
@@ -40,17 +39,20 @@ export default {
                 try {
                     this.loading = true;
                     const result = await axiosInstance.post(`/api/Atm/WithdrawMoney?amount=${this.amount}`)
-                    console.log(result);
-                    this.loading = false
-                    this.$refs.form.reset()
-                    this.$toast.open({
-                        message: "Amount is Disbursed",
-                        type: "success",
-                        duration: 1500,
-                        position: "top-left"
-                    })
+
+                    setTimeout(() => {
+                        this.loading = false
+                        this.$refs.form.reset()
+                        this.$toast.open({
+                            message: "Amount is Disbursed",
+                            type: "success",
+                            duration: 1500,
+                            position: "top-left"
+                        })
+                    }, 500);
+
                 } catch (error) {
-                    alert(error.message)
+                    alert(error.response?.data.message || error.message)
                 }
             }
         }
@@ -62,31 +64,40 @@ export default {
 .withdrawal-wrapper {
     height: 100%;
     width: 100%;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em;
+    align-items: center
 }
 
 .form-container {
-    padding: 5em;
-    background-color: #f0f0f0;
-    align-self: center;
-    width: 80%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    width: min(20em);
 }
 
-::v-deep .form-container .v-btn {
-    margin-top: 2em;
-    align-self: flex-end;
-    width: 10em;
+.form-container h3 {
+    color: #5D5D5D;
+    text-align: center;
+    margin-bottom: 1em;
 }
 
-.message-container {
-    margin-top: 2em;
-    padding: 1em;
-    background-color: #f0f0f0;
+
+.form-container .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.form-container .form>* {
+    width: 100%
+}
+
+.proceed-btn {
+    text-transform: capitalize;
+    margin: auto;
+    width: min(10em, 90%) !important;
+    margin-top: 1em
 }
 </style>

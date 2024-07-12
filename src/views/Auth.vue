@@ -2,20 +2,18 @@
   <div class="auth-wrapper">
     <v-form @submit.prevent="handleSubmit" ref="form" class="auth-container" lazy-validation>
       <div class="inp-row">
-        <label for="cardNo">Card No</label>
-        <v-text-field v-model="cardNo" :rules="cardNoRules" la :counter="16" id="cardNo" variant="outlined" dense
+        <v-text-field placeholder="Card No" v-model="cardNo" :rules="cardNoRules" la :counter="16" id="cardNo" variant="outlined" density="compact"
           autocomplete="off"></v-text-field>
       </div>
       <div class="inp-row">
-        <label for="pin">PIN Number</label>
-        <v-text-field v-model="pin" :rules="pinRules" :counter="4" id="pin" variant="outlined" dense
+        <v-text-field placeholder="PIN" v-model="pin" :rules="pinRules" :counter="4" id="pin" variant="outlined" density="compact"
           autocomplete="off"></v-text-field>
       </div>
       <div class="server-error-msg">
         {{ serverErrorMsg }}
       </div>
       <div class="inp-row btn-row">
-        <v-btn type="submit" class="submit-btn" color="primary">Submit</v-btn>
+        <v-btn type="submit" class="submit-btn" color="#1D7968">Verify</v-btn>
       </div>
     </v-form>
   </div>
@@ -67,13 +65,12 @@ export default {
 .auth-wrapper {
   display: grid;
   place-items: center;
-  height: 100vh;
-  height: 100svh;
+  width: 100%;
+  height: 100%;
 }
 
 .auth-container {
   width: min(25em, 90%);
-  border: 1px solid rgb(159, 159, 159);
   padding: 2em;
   border-radius: .25em;
   display: flex;
@@ -92,11 +89,12 @@ label {
 }
 
 .btn-row {
-  margin-top: .5em;
 }
 
 .submit-btn {
-  width: fit-content
+  margin: auto;
+  width: fit-content;
+  text-transform: capitalize;
 }
 
 .server-error-msg {

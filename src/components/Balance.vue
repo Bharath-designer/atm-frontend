@@ -1,12 +1,10 @@
 <template>
 
     <div class="check-balance-wrapper">
-        <div class="form-container">
-            <h2>Balance</h2>
-            <div class="message-container">
-                <p v-if="loading" class="loader">Loading....</p>
-                <p v-else>Your account balance: <span>{{balance}}</span></p>
-            </div>
+        <div class="title">Your Balance</div>
+        <div class="message-container">
+            <p v-if="loading" class="loader">Loading....</p>
+            <p v-else><span>{{ balance }}</span></p>
         </div>
     </div>
 </template>
@@ -27,12 +25,15 @@ export default {
     async beforeMount() {
         try {
             const result = await axiosInstance.post("/api/Atm/CheckBalance")
-            this.balance = result.data.balance
+            setTimeout(() => {
+                this.balance = result.data.balance
+                this.loading = false
+            }, 500);
         } catch (error) {
-            alert(error.response?.data.message || "Internal server error")
-        } finally {
             this.loading = false
-        }
+            alert(error.response?.data.message || "Internal server error")
+        } 
+        
     }
 }
 
@@ -47,29 +48,18 @@ export default {
     flex-direction: column;
     justify-content: center;
     padding: 2em;
+    align-items: center;
 }
 
-.form-container {
-    padding: 5em;
-    background-color: #f0f0f0;
-    align-self: center;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-::v-deep .form-container .v-btn {
-    align-self: flex-end;
-    width: 10em;
+ .title {
+    color: #5D5D5D;
+    font-weight: 500;
+    font-size: 1.1em;
 }
 
 .message-container {
-    padding: 1em 0;
-    background-color: #f0f0f0;
+    font-weight: 800;
+    font-size: 2.5em;
+    color: #929292;
 }
-
-.message-container span{
-    font-weight: 600;
-}
-
 </style>

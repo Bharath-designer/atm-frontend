@@ -1,5 +1,5 @@
 <template>
-    <div class="home-wrapper">
+    <!-- <div class="home-wrapper">
         <div class="actions-container">
             <router-view></router-view>
         </div>
@@ -15,7 +15,8 @@
                 <v-btn color="error" @click="cancel">Cancel</v-btn>
             </div>
         </div>
-    </div>
+    </div> -->
+    <router-view/>
 </template>
 
 <script>

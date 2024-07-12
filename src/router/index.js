@@ -38,12 +38,12 @@ const routes = [
           }
         ]
       },
+      {
+        path: "auth",
+        name: "Auth",
+        component: () => import("../views/Auth.vue")
+      }
     ]
-  },
-  {
-    path: "/auth",
-    name: "Auth",
-    component: () => import("../views/Auth.vue")
   }
 ]
 

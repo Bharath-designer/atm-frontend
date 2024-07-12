@@ -3,9 +3,13 @@
 
 This project is an ATM application that allows users to perform basic banking operations such as deposits and withdrawals. The backend is built using .NET Core Web API, and the frontend is created using Vue.js and Vuetify.
  
-[FrontEnd - Dev](http://atm-app.s3-website.ap-south-1.amazonaws.com)
+[FrontEnd - Live](https://d2zh494qsc92g7.cloudfront.net)
 <br>
-[Backend - Dev](https://74.225.241.169:7072/swagger/index.html)
+[Backend (Swagger) - Live](https://atmappwebapigenspark.azurewebsites.net/swagger/index.html)
+ <br/>
+[Frontend - Repo](https://github.com/Bharath-designer/atm-frontend)
+ <br/>
+[Backend - Repo](https://github.com/Senthamil2003/AtmManagerPresidio)
  
 **Team Members**
 - Aman Agrawal
@@ -13,6 +17,13 @@ This project is an ATM application that allows users to perform basic banking op
 - Jaivignesh
 - Sanjai Ragul
 - Senthamil Chezhian
+
+## Preview
+
+**[Demo Link](ATM_Screen_Recording.mp4)**
+
+[![Video](thumbnail.png)](ATM_Screen_Recording.mp4)
+
 
 ## Features
  

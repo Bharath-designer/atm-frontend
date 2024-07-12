@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://74.225.241.169:7072/'
+  baseURL: 'https://atmappwebapigenspark.azurewebsites.net'
 });
 
 axiosInstance.interceptors.request.use(
