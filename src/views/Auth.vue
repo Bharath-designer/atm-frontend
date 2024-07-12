@@ -88,8 +88,8 @@ label {
   color: rgb(73, 73, 73)
 }
 
-.btn-row {
-}
+/* .btn-row {
+} */
 
 .submit-btn {
   margin: auto;
