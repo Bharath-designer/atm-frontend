@@ -20,9 +20,9 @@ This project is an ATM application that allows users to perform basic banking op
 
 ## Preview
 
-**[Demo Link](ATM_Screen_Recording.mp4)**
+### [Demo Link](https://d2zh494qsc92g7.cloudfront.net/ATM_Screen_Recording.mp4)
 
-[![Video](thumbnail.png)](ATM_Screen_Recording.mp4)
+![](thumbnail.png)
 
 
 ## Features
