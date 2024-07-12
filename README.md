@@ -9,7 +9,9 @@ This project is an ATM application that allows users to perform basic banking op
  <br/>
 [Frontend - Repo](https://github.com/Bharath-designer/atm-frontend)
  <br/>
-[Backend - Repo](https://github.com/JaivigneshJv/GenSpark/tree/master/Day%2068%20-%20July%2012/AtmManagerPresidio/AtmApplicationSln)
+[Backend - Repo](https://github.com/Senthamil2003/AtmManagerPresidio)
+<br/>
+[View Both in a Repo](https://github.com/JaivigneshJv/GenSpark/tree/master/Day%2068%20-%20July%2012/AtmManagerPresidio/AtmApplicationSln)
  
 **Team Members**
 - Aman Agrawal
